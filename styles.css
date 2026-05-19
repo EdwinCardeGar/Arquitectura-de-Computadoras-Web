@@ -1,0 +1,57 @@
+:root{
+  --bg:#f6f8fb; --card:#ffffff; --accent:#2b6ef6; --muted:#6b7280;
+}
+*{box-sizing:border-box}
+body{font-family:Segoe UI,SegoeUI,Arial,Helvetica,sans-serif;margin:0;background:var(--bg);color:#111}
+header{padding:28px 16px;background:linear-gradient(90deg,#fff,#f7fbff);border-bottom:1px solid #e6eefb}
+header h1{margin:0 0 6px;font-size:1.6rem}
+main{max-width:1000px;margin:20px auto;padding:0 16px}
+.card{background:var(--card);padding:16px;margin-bottom:16px;border-radius:8px;box-shadow:0 1px 4px rgba(16,24,40,0.04)}
+label{display:block;margin:8px 0;font-size:0.95rem}
+input,select,textarea{width:100%;padding:8px;border:1px solid #dde7fb;border-radius:6px}
+.actions{display:flex;gap:8px;margin-top:8px}
+button{background:var(--accent);color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer}
+button[aria-disabled],button:disabled{opacity:0.6;cursor:default}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+ul{list-style:none;padding:0;margin:0}
+li{padding:8px;border-bottom:1px dashed #eee;display:flex;justify-content:space-between;align-items:center}
+.meta{color:var(--muted);font-size:0.9rem}
+@media (max-width:720px){.grid{grid-template-columns:1fr}}
+footer{padding:12px 16px;text-align:center;color:var(--muted)}
+
+/* Modal for editing */
+.modal{position:fixed;inset:0;background:rgba(2,6,23,0.45);display:flex;align-items:center;justify-content:center;padding:16px}
+.modal-inner{background:var(--card);padding:16px;border-radius:8px;max-width:720px;width:100%;box-shadow:0 6px 30px rgba(2,6,23,0.25)}
+.modal label{margin:6px 0}
+.modal .actions{justify-content:flex-end}
+.modal [type="button"]{background:#9aaefc}
+
+/* small header button styles */
+#undoBtn{font-weight:600}
+
+/* Toast notifications */
+.toasts{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:8px;z-index:9999}
+.toast{background:#111;color:#fff;padding:10px 14px;border-radius:8px;box-shadow:0 6px 20px rgba(2,6,23,0.2);min-width:180px;max-width:320px;opacity:0;transform:translateY(8px);animation:toastIn .18s ease forwards}
+.toast.success{background:#16a34a}
+.toast.info{background:#2563eb}
+.toast.warn{background:#f59e0b;color:#111}
+@keyframes toastIn{to{opacity:1;transform:translateY(0)}}
+.toast .close{background:transparent;border:none;color:inherit;float:right;font-weight:700;cursor:pointer}
+
+/* Action button inside toast */
+.toast .action{display:inline-block;margin-left:8px;background:transparent;border:1px solid rgba(255,255,255,0.18);padding:6px 8px;border-radius:6px;color:inherit;cursor:pointer;font-weight:600}
+.toast.warn .action{border-color:rgba(0,0,0,0.12);background:#fff}
+
+/* History panel */
+#historyList{list-style:none;padding:0;margin:0}
+#historyList li{display:flex;justify-content:space-between;align-items:center;padding:8px;border-bottom:1px solid #f1f5f9}
+.history-left{display:flex;flex-direction:column}
+.history-title{font-weight:600}
+.history-meta{font-size:0.85rem;color:var(--muted)}
+.history-actions button{margin-left:8px;padding:6px 8px;border-radius:6px;border:none;cursor:pointer}
+.history-actions .undo{background:#059669;color:#fff}
+.history-actions .remove{background:#ef4444;color:#fff}
+
+
+
+

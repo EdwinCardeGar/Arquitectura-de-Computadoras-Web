@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mis Apuntes de Clase</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Mis Apuntes de Clase</h1>
+    <p>Guarda reportes, conceptos, temario y diapositivas en tu navegador.</p>
+    <div style="margin-top:10px;">
+      <input id="searchInput" placeholder="Buscar por título, contenido o archivo..." style="width:100%;padding:8px;border-radius:6px;border:1px solid #dde7fb" />
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Añadir Reporte / Concepto / Temario</h2>
+      <form id="noteForm">
+        <label>Tipo
+          <select id="noteType">
+            <option value="reporte">Reporte</option>
+            <option value="concepto">Concepto</option>
+            <option value="temario">Temario</option>
+          </select>
+        </label>
+        <label>Título<input id="noteTitle" required /></label>
+        <label>Contenido<textarea id="noteContent" rows="6"></textarea></label>
+        <div class="actions">
+          <button type="submit">Guardar</button>
+          <button type="button" id="exportJsonBtn">Exportar (JSON)</button>
+          <button type="button" id="exportZipBtn">Exportar completo (ZIP)</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Subir Diapositivas</h2>
+      <form id="slideForm">
+        <label>Título<input id="slideTitle" required /></label>
+        <label>Archivo (PDF, PPTX, imágenes)<input id="slideFile" type="file" required /></label>
+        <div class="actions"><button type="submit">Subir</button></div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Contenido Guardado</h2>
+      <div id="lists" class="grid">
+        <div>
+          <h3>Reportes</h3>
+          <ul id="reportsList"></ul>
+        </div>
+        <div>
+          <h3>Conceptos</h3>
+          <ul id="conceptsList"></ul>
+        </div>
+        <div>
+          <h3>Temario</h3>
+          <ul id="temarioList"></ul>
+        </div>
+        <div>
+          <h3>Diapositivas</h3>
+          <ul id="slidesList"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Guardado local en tu navegador (IndexedDB). No se sube nada a internet.</small>
+  </footer>
+
+  <div id="editModal" class="modal" hidden>
+    <div class="modal-inner">
+      <h3 id="modalTitle">Editar entrada</h3>
+      <form id="editForm">
+        <label>Título<input id="editTitle" required /></label>
+        <label>Contenido<textarea id="editContent" rows="6"></textarea></label>
+        <div class="actions">
+          <button type="submit">Guardar cambios</button>
+          <button type="button" id="cancelEdit">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# Ignore system and editor files
+.DS_Store
+thumbs.db
+
+# Node modules if installed locally
+node_modules/
