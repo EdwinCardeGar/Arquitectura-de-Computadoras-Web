@@ -3,90 +3,288 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mis Apuntes de Clase</title>
+  <title>Arquitectura de Computadoras - Edwin Uriel Cárdenas Garza</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Mis Apuntes de Clase</h1>
-    <p>Guarda reportes, conceptos, temario y diapositivas en tu navegador.</p>
-    <div style="margin-top:10px;">
-      <input id="searchInput" placeholder="Buscar por título, contenido o archivo..." style="width:100%;padding:8px;border-radius:6px;border:1px solid #dde7fb" />
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Arquitectura de Computadoras</h1>
+        <p class="subtitle">Portafolio Académico</p>
+        <p class="description">Descubre los fundamentos, conceptos y aplicaciones prácticas de la Arquitectura de Computadoras a través de este portafolio educativo.</p>
+      </div>
+      <div class="hero-info">
+        <div class="info-card">
+          <h3>Alumno</h3>
+          <p>Edwin Uriel Cárdenas Garza</p>
+        </div>
+        <div class="info-card">
+          <h3>Universidad</h3>
+          <p>Instituto Tecnológico de Saltillo</p>
+        </div>
+        <div class="info-card">
+          <h3>Carrera</h3>
+          <p>Ingeniería en Sistemas Computacionales</p>
+        </div>  
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="card">
-      <h2>Añadir Reporte / Concepto / Temario</h2>
-      <form id="noteForm">
-        <label>Tipo
-          <select id="noteType">
-            <option value="reporte">Reporte</option>
-            <option value="concepto">Concepto</option>
-            <option value="temario">Temario</option>
-          </select>
-        </label>
-        <label>Título<input id="noteTitle" required /></label>
-        <label>Contenido<textarea id="noteContent" rows="6"></textarea></label>
-        <div class="actions">
-          <button type="submit">Guardar</button>
-          <button type="button" id="exportJsonBtn">Exportar (JSON)</button>
-          <button type="button" id="exportZipBtn">Exportar completo (ZIP)</button>
+  <nav class="navbar">
+    <div class="nav-links">
+      <a href="#materia">La Materia</a>
+      <a href="#objetivo">Objetivo</a>
+      <a href="#contenido">Contenido</a>
+      <a href="#conceptos">CONCEPTOS</a>
+      <a href="#exposiciones">EXPOSICIONES</a>
+      <a href="#reportes">REPORTES</a>
+      <a href="#universidad">Universidad</a>
+    </div>
+  </nav>
+
+  <section id="materia" class="section accent">
+      <div class="container">
+        <h2>¿Qué es Arquitectura de Computadoras?</h2>
+        <p class="text-large">
+          La Arquitectura de Computadoras es la disciplina que estudia la estructura, organización y funcionamiento de las computadoras. 
+          Comprende desde los componentes de hardware (procesadores, memoria, buses de datos) hasta las técnicas de diseño de sistemas digitales 
+          que permiten que estos componentes trabajen de manera coordinada y eficiente.
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Componentes Clave</h3>
+            <p>CPU, memoria RAM, almacenamiento, buses de datos, periféricos y sistemas de control.</p>
+          </div>
+          <div class="card">
+            <h3>Aplicaciones</h3>
+            <p>Diseño de procesadores, optimización de rendimiento, sistemas embebidos, computadoras cuánticas.</p>
+          </div>
         </div>
-      </form>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Subir Diapositivas</h2>
-      <form id="slideForm">
-        <label>Título<input id="slideTitle" required /></label>
-        <label>Archivo (PDF, PPTX, imágenes)<input id="slideFile" type="file" required /></label>
-        <div class="actions"><button type="submit">Subir</button></div>
-      </form>
+    <!-- Recursos: CONCEPTOS / EXPOSICIONES / REPORTES -->
+    <div class="tabs" role="tablist" aria-label="Recursos de la materia">
+      <button class="tab active" data-target="conceptos" role="tab" aria-selected="true">Conceptos</button>
+      <button class="tab" data-target="exposiciones" role="tab" aria-selected="false">Exposiciones</button>
+      <button class="tab" data-target="reportes" role="tab" aria-selected="false">Reportes</button>
+    </div>
+
+    <section id="conceptos" class="section accent tab-panel active" data-panel="conceptos">
+      <div class="container">
+        <h2>Conceptos</h2>
+        <p class="text-large">Conceptos clave de la materia.</p>
+        <div class="resource-grid">
+          <div class="resource-card">El hardware es el conjunto de componentes físicos y tangibles que conforman un sistema informático o dispositivo electrónico, como la unidad central de procesamiento (CPU), la memoria RAM, los discos duros, la placa base y los periféricos de entrada y salida</div>
+          <div class="resource-card">Una computadora (también conocida como ordenador o computador) es una máquina electrónica digital programable capaz de recibir datos, procesarlos mediante instrucciones de software y generar información útil como resultado. </div>
+          <div class="resource-card">Los componentes de entrada y salida (también conocidos como periféricos E/S) son dispositivos físicos conectados a una computadora que permiten la comunicación bidireccional entre el usuario y el sistema o entre la computadora y otros dispositivos.  Estos componentes se clasifican según la dirección del flujo de datos</div>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Contenido Guardado</h2>
-      <div id="lists" class="grid">
-        <div>
-          <h3>Reportes</h3>
-          <ul id="reportsList"></ul>
+    <section id="exposiciones" class="section accent tab-panel" data-panel="exposiciones" hidden>
+      <div class="container">
+        <h2>Exposiciones</h2>
+        <p class="text-large">Sección para diapositivas y enlaces a exposiciones realizadas por el grupo.</p>
+        <div class="resource-grid">
+          <a class="resource-card" href="expo/expo-1.pdf" target="_blank">Exposición 1 — PDF</a>
+          <a class="resource-card" href="expo/expo-2.pdf" target="_blank">Exposición 2 — PDF</a>
+          <a class="resource-card" href="expo/expo-3.pdf" target="_blank">Exposición 3 — PDF</a>
+          <a class="resource-card" href="expo/expo-4.pdf" target="_blank">Exposición 4 — PDF</a>
+          <a class="resource-card" href="expo/expo-5.pdf" target="_blank">Exposición 5 — PDF</a>
         </div>
-        <div>
-          <h3>Conceptos</h3>
-          <ul id="conceptsList"></ul>
+      </div>
+    </section>
+
+    <section id="reportes" class="section accent tab-panel" data-panel="reportes" hidden>
+      <div class="container">
+        <h2>Reportes</h2>
+        <p class="text-large">Aquí irán los reportes y trabajos prácticos asociados a la materia.</p>
+        <div class="resource-grid">
+          <a class="resource-card" href="practicas/practica-1.pdf" target="_blank">Práctica 1 </a>
+          <a class="resource-card" href="practicas/practica-2.pdf" target="_blank">Práctica 2 </a>
+          <a class="resource-card" href="practicas/practica-3.pdf" target="_blank">Práctica 3 </a>
+          <a class="resource-card" href="practicas/practica-4.pdf" target="_blank">Práctica 4 </a>
         </div>
-        <div>
-          <h3>Temario</h3>
-          <ul id="temarioList"></ul>
+      </div>
+    </section>
+
+    <!-- Objetivo -->
+    <section id="objetivo" class="section accent">
+      <div class="container">
+        <h2>Objetivo de este Portafolio</h2>
+        <p class="text-large">
+          Este portafolio reúne los conceptos, reportes, diapositivas y temario desarrollados durante el curso de Arquitectura de Computadoras. 
+          Su propósito es documentar el aprendizaje integral en la materia y servir como referencia visual de los temas tratados.
+        </p>
+        <div class="objectives">
+          <div class="obj-item">
+            <span class="obj-icon">📚</span>
+            <h4>Consolidar conocimiento</h4>
+            <p>Organizar y presentar los conceptos clave de forma clara.</p>
+          </div>
+          <div class="obj-item">
+            <span class="obj-icon">🔧</span>
+            <h4>Mostrar aplicación práctica</h4>
+            <p>Demostrar la relevancia de Arquitectura en sistemas reales.</p>
+          </div>
+          <div class="obj-item">
+            <span class="obj-icon">🎓</span>
+            <h4>Servir como referencia</h4>
+            <p>Facilitar la revisión y comprensión de temas para aprendizaje futuro.</p>
+          </div>
         </div>
-        <div>
-          <h3>Diapositivas</h3>
-          <ul id="slidesList"></ul>
+      </div>
+    </section>
+
+    <!-- Contenido -->
+    <section id="contenido" class="section">
+      <div class="container">
+        <h2>Contenido del Curso</h2>
+        <div class="content-grid">
+          <details class="content-item">
+            <summary>
+              <h3>Unidad 1</h3>
+              <p>Modelos de Arquitecturas de Cómputo y componentes.</p>
+            </summary>
+            <div class="content-details">
+              <p>Subtemas:</p>
+              <ul>
+                <li>1.1 Modelos de Arquitecturas de cómputo</li>
+                <li>Clásicas</li>
+                <li>Segmentadas</li>
+                <li>Multiprocesamiento</li>
+                <li>1.2 Análisis de los componentes</li>
+                <li>Arquitecturas</li>
+                <li>Unidad de Control de Procesamientos (CPU)</li>
+                <li>Unidad Aritmética Lógica (ALU)</li>
+                <li>Unidad de Control (UC)</li>
+                <li>Registros</li>
+                <li>Buses</li>
+                <li>Memoria</li>
+                <li>1.3 Memoria Principal</li>
+                <li>Memoria Caché</li>
+                <li>1.4 Modelos Entrada-Salida (E/S)</li>
+                <li>E/S Programadas</li>
+                <li>E/S mediante interrupciones</li>
+                <li>1.5 Acceso Directo a Memoria (DMA)</li>
+                <li>1.6 Buses</li>
+                <li>Tipos de buses</li>
+                <li>Estructura</li>
+                <li>Jerarquía</li>
+                <li>1.7 Interrupciones</li>
+              </ul>
+            </div>
+          </details>
+          <details class="content-item">
+            <summary>
+              <h3>Unidad 2</h3>
+              <p>Estructura y funcionamiento del procesador.</p>
+            </summary>
+            <div class="content-details">
+              <p>Subtemas:</p>
+              <ul>
+                <li>2.1 Organización del procesador</li>
+                <li>2.2 Estructura de registros</li>
+                <li>Registros visibles al usuario</li>
+                <li>Registros de control</li>
+                <li>Registros de estado</li>
+                <li>2.3 Ciclo de la instrucción</li>
+                <li>Ciclo Fetch-Decode</li>
+                <li>Segmentación – Ejecución</li>
+                <li>Conjunto de instrucciones</li>
+                <li>2.4 Modos de direccionamiento</li>
+                <li>2.5 Casos de estudio</li>
+              </ul>
+            </div>
+          </details>
+          <details class="content-item">
+            <summary>
+              <h3>Unidad 3</h3>
+              <p>Selección de componentes para ensamble de equipo de cómputo.</p>
+            </summary>
+            <div class="content-details">
+              <p>Subtemas:</p>
+              <ul>
+                <li>3.1 Chip Set</li>
+                <li>Unidad Central de Procesamiento (CPU)</li>
+                <li>Controlador del Bus</li>
+                <li>Puertos de Entrada-Salida (E/S)</li>
+                <li>Controlador de Interrupciones</li>
+                <li>Controlador de Acceso Directo a Memoria (DMA)</li>
+                <li>Circuitos de temporización</li>
+                <li>Circuitos de control</li>
+                <li>Controladoras de video</li>
+                <li>3.2 Aplicaciones</li>
+                <li>Entrada/Salida</li>
+                <li>Almacenamiento</li>
+                <li>Fuentes de alimentación</li>
+                <li>3.3 Ambientes de servicio</li>
+                <li>Negocios</li>
+                <li>Industria</li>
+                <li>Comercio electrónico</li>
+              </ul>
+            </div>
+          </details>
+          <details class="content-item">
+            <summary>
+              <h3>Unidad 4</h3>
+              <p>Unidad de Procesamiento Paralelo.</p>
+            </summary>
+            <div class="content-details">
+              <p>Subtemas:</p>
+              <ul>
+                <li>4.1 Aspectos básicos de la computación paralela</li>
+                <li>4.2 Tipos de computación paralela</li>
+                <li>Clasificación</li>
+                <li>Arquitectura de computadoras secuenciales</li>
+                <li>Organización de direcciones de memoria</li>
+                <li>4.3 Sistemas de memoria compartida</li>
+                <li>Multiprocesadores</li>
+                <li>Redes de interconexión dinámica/estática</li>
+                <li>Medio compartido</li>
+                <li>Conmutadores</li>
+                <li>4.4 Sistemas de memoria distribuida</li>
+                <li>Multiprocesadores</li>
+                <li>Redes de interconexión</li>
+                <li>4.5 Casos para estudio</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Universidad -->
+    <section id="universidad" class="section accent">
+      <div class="container">
+        <h2>Instituto Tecnológico de Saltillo</h2>
+        <div class="uni-info">
+          <div class="uni-text">
+            <p>
+              El Instituto Tecnológico de Saltillo es una institución de educación superior pública líder en la formación de profesionales 
+              de ingeniería de alta calidad. Comprometido con la excelencia académica y la investigación.
+            </p>
+            <div class="uni-links">
+              <a href="https://saltillo.tecnm.mx/" target="_blank" class="btn">Sitio Oficial</a>
+              <a href="https://saltillo.tecnm.mx/tecnologico" target="_blank" class="btn">Conoce al ITS</a>
+              <a href="https://login.microsoftonline.com/?whr=tecnm.mx" target="_blank" class="btn">Contacto</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <small>Guardado local en tu navegador (IndexedDB). No se sube nada a internet.</small>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Edwin Uriel Cárdenas Garza | Instituto Tecnológico de Saltillo | Ingeniería en Sistemas Computacionales</p>
+      <p style="font-size:0.9rem;color:#7dd3fc">Arquitectura de Computadoras — Portafolio Académico</p>
+    </div>
   </footer>
 
-  <div id="editModal" class="modal" hidden>
-    <div class="modal-inner">
-      <h3 id="modalTitle">Editar entrada</h3>
-      <form id="editForm">
-        <label>Título<input id="editTitle" required /></label>
-        <label>Contenido<textarea id="editContent" rows="6"></textarea></label>
-        <div class="actions">
-          <button type="submit">Guardar cambios</button>
-          <button type="button" id="cancelEdit">Cancelar</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
