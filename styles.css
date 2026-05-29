@@ -390,7 +390,7 @@ main {
 }
 
 .content-item[open] .content-details {
-  max-height: 400px;
+  max-height: 1200px;
   opacity: 1;
   margin-top: 18px;
 }
@@ -462,10 +462,36 @@ main {
   border-radius: 10px;
   box-shadow: 0 10px 26px rgba(0,0,0,0.36);
   transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 500;
+  min-height: 100px;
+}
 
 .resource-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 22px 48px rgba(2,6,23,0.7);
+  background: linear-gradient(180deg, rgba(0,122,193,0.3), rgba(240,81,51,0.2));
+  border-color: var(--accent);
+}
+
+/* Unit Resources Section */
+.unit-resources {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 2px solid rgba(255,255,255,0.08);
+}
+
+.unit-resources h4 {
+  color: var(--primary-light);
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 
 /* Footer */
